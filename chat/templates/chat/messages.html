@@ -1,0 +1,31 @@
+{% for obj in chat %}
+    {% if obj.user == request.user %}
+        <li class="text-right list-group-item" 
+        style="background-color: #e5f4ff;
+        color: #000;
+        font-size: 14px;
+        width: 40%;
+        font-family: 'Roboto Slab', serif;
+        border-radius: 10px;
+        float:right;
+        clear:both;
+        margin-top:10px;">
+        	<p style="text-align: left; font-size: 11px"><span style="color:red; text-decoration: underline">{{ obj.user }}</span> - <span style="color: #333">{{ obj.timestamp }}</span></p>
+        	{{ obj.message }}
+        </li>
+    {% else %}
+        <li class="text-right list-group-item"
+        style="background-color: #d4fe99;
+        color: #000;
+        font-size: 14px;
+        width: 40%;
+        font-family: 'Roboto Slab', serif;
+        border-radius: 10px;
+        float:left;
+        clear:both;
+        margin-top:10px;">
+        	<p style="text-align: left; font-size: 11px"><span style="color:red; text-decoration: underline">{{ obj.user }}</span> - <span style="color: #333">{{ obj.timestamp }}</span></p>
+        	{{ obj.message }}
+        </li>
+    {% endif %}
+{% endfor %}

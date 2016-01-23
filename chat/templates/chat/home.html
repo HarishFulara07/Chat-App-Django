@@ -1,0 +1,40 @@
+{% load staticfiles %}
+
+<html>
+
+<head>
+    <title>Chat Panel</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'CSS/chat.css' %}">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	<div id="chat-body" class="panel">
+		<div class="panel-heading">Chat Box</div>
+		<div id="msg-list-div" class="panel-body" style="background-color: #0095fd">
+			<ul id="msg-list" class="list-group">
+				{% include 'chat/messages.html' %}
+			</ul>
+		</div>
+	</div>
+
+	<form id="chat-form" method="POST" action="/post/">
+		<div id="msg-form" class="input-group">
+			<input type="text" id="chat-msg" name="chat-msg" autocomplete="off" placeholder="Enter your message" class="form-control"/>
+			<span class="input-group-btn">
+				<input class="btn btn-default" id="send" type="submit" value="Send" disabled="true" />
+			</span>
+		</div>
+	</form>
+</body>
+
+<script src="{% static 'JS/chat.js' %}"></script>
+</html>
